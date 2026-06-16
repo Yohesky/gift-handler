@@ -9,7 +9,7 @@ export class PostgresGiftRepository {
   async create(gift) {
     const response = await apiClient.post("/gift", {
       title: gift.title,
-      user_device_id: gift.userDeviceId,
+      user_device_id: gift.createdBy,
     });
     return response.data.data;
   }
