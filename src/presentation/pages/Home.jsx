@@ -7,23 +7,29 @@ const GiftList = lazy(() =>
   import("@/presentation/components/GiftList").then((m) => ({ default: m.GiftList }))
 );
 import { Toast } from "@/presentation/components/Toast";
-import { useGifts, useCreateGift, useDeleteGift } from "@/presentation/hooks/useGifts";
-import { getUserId } from "@/application/services/userIdService";
+import { useGifts, useCreateGift, useDeleteGift, useUpdateGift } from "@/presentation/hooks/useGifts";
+import { useRegisterUser } from "@/presentation/hooks/useRegisterUser";
 import { User, Info } from "lucide-react";
-import { MOCK_GIFTS } from "@/infrastructure/api/giftApi";
 import { Alert, AlertTitle, AlertDescription } from "@/components/ui/alert";
 
 export function Home() {
-  const currentUserId = getUserId();
+  const currentUserId = useRegisterUser();
   const { data: gifts = [], isLoading } = useGifts();
   const createGift = useCreateGift();
   const deleteGift = useDeleteGift();
+  const updateGift = useUpdateGift();
   const [deleteTarget, setDeleteTarget] = useState(null);
   const [toast, setToast] = useState(null);
 
   const handleAdd = (name) => {
     createGift.mutate(name, {
       onSuccess: () => setToast({ key: Date.now(), message: `"${name}" añadido`, variant: "success" }),
+    });
+  };
+
+  const handleEdit = (id, name) => {
+    updateGift.mutate({ id, name }, {
+      onSuccess: () => setToast({ key: Date.now(), message: `"${name}" actualizado`, variant: "success" }),
     });
   };
 
@@ -99,6 +105,7 @@ export function Home() {
                 gifts={gifts ?? []}
                 currentUserId={currentUserId}
                 onDelete={handleDeleteRequest}
+                onEdit={handleEdit}
               />
             </Suspense>
           )}

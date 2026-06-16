@@ -9,6 +9,10 @@ export class GiftRepositoryImpl {
     return createGiftApi(gift);
   }
 
+  async update() {
+    throw new Error("GiftRepositoryImpl.update not implemented");
+  }
+
   async deleteById(id) {
     return deleteGiftApi(id);
   }

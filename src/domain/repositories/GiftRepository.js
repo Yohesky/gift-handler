@@ -14,6 +14,9 @@ export const GiftRepository = {
   create: async () => {
     throw new Error("GiftRepository.create not implemented");
   },
+  update: async () => {
+    throw new Error("GiftRepository.update not implemented");
+  },
   deleteById: async () => {
     throw new Error("GiftRepository.deleteById not implemented");
   },

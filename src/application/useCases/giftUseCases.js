@@ -9,19 +9,20 @@ export function createGetGiftsUseCase(giftRepository) {
 export function createCreateGiftUseCase(giftRepository) {
   return async function createGift(name) {
     const createdBy = getUserId();
-    const gift = {
-      id: crypto.randomUUID(),
-      name,
-      status: "available",
-      createdBy,
-      createdAt: new Date().toISOString(),
-    };
-    return giftRepository.create(gift);
+    return giftRepository.create({ name, createdBy });
+  };
+}
+
+export function createUpdateGiftUseCase(giftRepository) {
+  return async function updateGift(id, name) {
+    const userId = getUserId();
+    return giftRepository.update(id, name, userId);
   };
 }
 
 export function createDeleteGiftUseCase(giftRepository) {
   return async function deleteGift(id) {
-    return giftRepository.deleteById(id);
+    const userId = getUserId();
+    return giftRepository.deleteById(id, userId);
   };
 }

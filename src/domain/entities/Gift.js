@@ -7,13 +7,13 @@ export class Gift {
     this.createdAt = createdAt;
   }
 
-  static create({ name, createdBy }) {
+  static fromApi(apiGift) {
     return new Gift({
-      id: crypto.randomUUID(),
-      name,
+      id: String(apiGift.id),
+      name: apiGift.title,
       status: "available",
-      createdBy,
-      createdAt: new Date().toISOString(),
+      createdBy: apiGift.userDeviceId,
+      createdAt: null,
     });
   }
 }
