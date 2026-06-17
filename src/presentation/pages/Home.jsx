@@ -2,6 +2,7 @@ import { useState, lazy, Suspense } from "react";
 import { GiftInput } from "@/presentation/components/GiftInput";
 import { GiftListSkeleton } from "@/presentation/components/GiftListSkeleton";
 import { DeleteConfirmModal } from "@/presentation/components/DeleteConfirmModal";
+import { AvisoModal } from "@/presentation/components/AvisoModal";
 
 const GiftList = lazy(() =>
   import("@/presentation/components/GiftList").then((m) => ({ default: m.GiftList }))
@@ -20,6 +21,7 @@ export function Home() {
   const updateGift = useUpdateGift();
   const [deleteTarget, setDeleteTarget] = useState(null);
   const [toast, setToast] = useState(null);
+  const [showAviso, setShowAviso] = useState(true);
 
   const handleAdd = (name) => {
     createGift.mutate(name, {
@@ -119,6 +121,9 @@ export function Home() {
           )}
         </div>
       </div>
+
+      {/* Aviso Modal */}
+      <AvisoModal open={showAviso} onClose={() => setShowAviso(false)} />
 
       {/* Delete Confirmation Modal */}
       <DeleteConfirmModal
