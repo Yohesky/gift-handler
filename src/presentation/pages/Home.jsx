@@ -74,10 +74,12 @@ export function Home() {
         </header>
 
         {/* Hero */}
-        <div className="bg-gradient-to-r from-[#a8edea] to-[#fed6e3] rounded-2xl p-6 mb-6 text-center">
-          <h2 className="text-2xl md:text-3xl font-bold text-gray-800">
-            🎉 Regalos de Cumpleaños para Sofía 🎉
-          </h2>
+        <div className="mb-6">
+          <img
+            src="/invitacion-og.jpeg"
+            alt="Invitación de cumpleaños de Sofía"
+            className="w-full rounded-2xl object-cover max-h-[400px]"
+          />
         </div>
 
         <Alert className="mb-6">
