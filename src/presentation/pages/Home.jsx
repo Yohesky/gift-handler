@@ -88,9 +88,9 @@ export function Home() {
 
         <Alert className="mb-6">
           <Info />
-          <AlertTitle>Open Graph</AlertTitle>
+          <AlertTitle>Datos</AlertTitle>
           <AlertDescription>
-            og:title: ¡Estás invitado a la celebración de mi primer añito! | og:description: Fecha: 04/07 - Hora: 2:00 PM - Lugar: Cra 50 #165-50 - Rincon del karmel 1 | og:image: /invitacion-og.jpeg | og:type: website
+            Fecha: 04/07 - Hora: 2:00 PM - Lugar: Cra 50 #165-50 - Rincon del karmel 1
           </AlertDescription>
         </Alert>
 
