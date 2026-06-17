@@ -86,6 +86,14 @@ export function Home() {
           </AlertDescription>
         </Alert>
 
+        <Alert className="mb-6">
+          <Info />
+          <AlertTitle>Open Graph</AlertTitle>
+          <AlertDescription>
+            og:title: ¡Estás invitado a la celebración de mi primer añito! | og:description: Fecha: 04/07 - Hora: 2:00 PM - Lugar: Cra 50 #165-50 - Rincon del karmel 1 | og:image: /invitacion-og.jpeg | og:type: website
+          </AlertDescription>
+        </Alert>
+
         {/* Sticky Input */}
         <div className="sticky top-0 z-10 bg-white/90 backdrop-blur-sm rounded-2xl p-4 mb-6 shadow-md border border-gray-100">
           <GiftInput onAdd={handleAdd} disabled={createGift.isPending} />
